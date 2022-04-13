@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Array Simulator</title>
+  </head>
+  <body>
+    <section id="main-page">
+      <div class="title-container">
+        <h1 class="app-title">Array Simulator</h1>
+      </div>
+     
+      <div class="array-simulator">
+        <div class="user-info-container">
+          <h2 class="user-info">Please select Start index by clicking on desired Index</h2>
+        </div>
+        <div class="array-one array">
+          
+        </div>
+        
+      </div>
+      <div class="button-container">
+        <div class="group-btn-container">
+          <div class="individual-btn-container">
+            <button id="unshift" class="btn-button">unshift()</button>
+            <div class="next-element-container unshift-next-container">
+              <h2>Adding</h2>
+              <div class="small-item unshift-item">[0]</div>
+            </div>
+          </div>
+          <div class="individual-btn-container">
+            <button id="shift" class="btn-button">shift()</button>
+            <div class="next-element-container shift-next-container">
+              <h2>Removing</h2>
+              <div class="small-item shift-item">[0]</div>
+            </div>
+          </div>
+          <div class="individual-btn-container">
+            <button id="push" class="btn-button">push()</button>
+            <div class="next-element-container push-next-container">
+              <h2>Adding</h2>
+              <div class="small-item push-item">[0]</div>
+            </div>
+          </div>
+          <div class="individual-btn-container">
+            <button id="pop" class="btn-button">pop()</button>
+            <div class="next-element-container pop-next-container">
+              <h2>Removing</h2>
+              <div class="small-item pop-item">[0]</div>
+            </div>
+          </div>
+        </div>
+          <button id="clear">Clear All</button>
+          
+      </div>
+
+      <div class="splice-container">
+        <button id="splice">splice()</button>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js" integrity="sha512-kVlGhj2qFy+KBCFuvjBJTGUMxbdqJKs4yK2jh0e0VPhWUPiPC87bzm4THmaaIee3Oj7j6sDpTTgm2EPPiESqBg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

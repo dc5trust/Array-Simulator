@@ -1,0 +1,127 @@
+* {
+  padding: 0rem;
+  margin: 0rem;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+#main-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+#main-page .title-container {
+  height: 2rem;
+  width: 90%;
+  margin: auto;
+}
+#main-page .app-title {
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-size: 8rem;
+}
+#main-page .array-simulator {
+  height: 40rem;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#main-page .array {
+  background-color: rgb(61, 59, 59);
+  height: 27rem;
+  width: 97.5%;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  border: 3px solid rgb(101, 196, 252);
+}
+#main-page .item {
+  height: 24rem;
+  width: 5rem;
+  background-color: rgb(101, 196, 252);
+  margin-left: 0.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.3rem rgb(255, 255, 255) solid;
+}
+#main-page .button-container {
+  min-height: 10rem;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main-page .splice-container {
+  min-height: 10rem;
+}
+
+#main-page .item-selected {
+  border: 5px solid yellow;
+}
+#main-page .user-info {
+  font-size: 2.5rem;
+  opacity: 0;
+  margin: auto;
+  width: 90%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.button-container .group-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.button-container .individual-btn-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20rem;
+  width: 20rem;
+}
+.button-container .individual-btn-container .next-element-container {
+  height: 20rem;
+  width: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+.button-container .individual-btn-container .small-item {
+  height: 15.5rem;
+  width: 5rem;
+  background-color: rgb(101, 196, 252);
+  margin-left: 0.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.3rem rgb(255, 255, 255) solid;
+}/*# sourceMappingURL=style.css.map */
