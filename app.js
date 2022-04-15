@@ -44,6 +44,7 @@ function previewNextElement_PUSH(){
     if(setTimeOutProcessing === false){
         setTimeOutProcessing = true;
         const push_previewNextElement = document.querySelector('.push-item');
+        const shift_previewNextElement = document.querySelector('.shift-item');
         updateTheNextPreviewIndex();
         gsap.fromTo(push_previewNextElement, {y:0}, {y: -300, duration: .5});
         setTimeout(()=>{
@@ -53,6 +54,7 @@ function previewNextElement_PUSH(){
             newElement.innerText = `[${itemsArray.length}]`;
             gsap.fromTo(newElement, {y: 300}, {y: 0, duration: .5});
             push_nextContainer.append(newElement);
+            shift_previewNextElement.innerText = `[0]`;
             setTimeOutProcessing = !setTimeOutProcessing;
         }, 500);
     }
@@ -63,6 +65,7 @@ function previewNextElement_POP(){
         itemsArray = Array.from(item);
         setTimeOutProcessing =  true;
         const pop_previewNextElement = document.querySelector('.pop-item');
+        const shift_previewNextElement = document.querySelector('.shift-item');
         gsap.fromTo(pop_previewNextElement, {y:0}, {y: 300, duration: .5});
         setTimeout(()=>{
             pop_previewNextElement.remove();
@@ -70,8 +73,10 @@ function previewNextElement_POP(){
             newElement.setAttribute('class', `small-item pop-item`);
             if(itemsArray.length === 0){
                 newElement.innerText = `[ ]`;
+                shift_previewNextElement.innerText = `[ ]`;
             }else if(itemsArray.length > 0){
                 newElement.innerText = `[${itemsArray.length-1}]`;
+                shift_previewNextElement.innerText = `[0]`;
             }
             pop_nextContainer.append(newElement);
             gsap.fromTo(newElement, {y: -300}, {y: 0, duration: .5});
@@ -175,11 +180,14 @@ function clear(){
 
 function splice(){
     itemsArray = Array.from(item);
+    console.log(typeof itemsArray.length);
     if(itemsArray.length === 0){
         userStatus.innerText = 'Array is Empty!';
+        userStatus.style.opacity = 1;
+        console.log('hello')
         return
     }
-
+    userStatus.style.color = 'black';
     let firstElementClicked;
     let SecondElementClicked;
     userStatus.style.opacity = 1;
@@ -193,56 +201,47 @@ function splice(){
         // userStatus.style.opacity = 0;
     }
     arrayContainerOne.addEventListener('click', (e)=>{
-        let deleteCountNum; 
-        if(clickCountArray < 2){
-            if(e.target.classList[0] !== 'item' || e.target.classList[1] === 'item-selected') return
-                clickCountArray++;
-            if(clickCountArray === 1){
-                addIdToAllElements();
-                e.target.classList.add('item-selected');
-                userStatus.innerText = 'Please select Range ( delete count )';
-                firstElementClicked = e.target.id;
+            let deleteCountNum; 
+            if(clickCountArray < 2){
+                if(e.target.classList[0] !== 'item' || e.target.classList[1] === 'item-selected') return
+                    clickCountArray++;
+                if(clickCountArray === 1){
+                    addIdToAllElements();
+                    e.target.classList.add('item-selected');
+                    userStatus.innerText = 'Please select Range ( delete count )';
+                    firstElementClicked = e.target.id;
+                    //if array has one element, splice should delete the element upon user click
+                    if(itemsArray.length === 1){
+                        arrayContainerOne.removeChild(item[firstElementClicked]);
+                        clickCountArray = 2;
+                        userStatus.innerText = 'Single Element was removed!'
+                    }
                 
-                //if array has one element, splice should delete the element upon user click
-                if(itemsArray.length === 1){
-                    arrayContainerOne.removeChild(item[firstElementClicked]);
-                    clickCountArray = 2;
-                    userStatus.innerText = 'Single Element was removed!'
+                    reorderIndexNumbers(700);
+                }else if(clickCountArray === 2){
+                    console.log(SecondElementClicked)
+                    addIdToAllElements();
+                    e.target.classList.add('item-selected');
+                    SecondElementClicked = e.target.id;
+                    deleteCountNum = (parseInt(SecondElementClicked)+1) - firstElementClicked;
+                    userStatus.innerText = `Splice( index: ${firstElementClicked}, Delete Count: ${deleteCountNum})`;
+                    RemoveItemsUsingSplice(firstElementClicked, SecondElementClicked);
+                    reorderIndexNumbers(700);         
                 }
-               
-                reorderIndexNumbers(700);
-            }else if(clickCountArray === 2){
-                // if(e.target.classList[1] === 'item-selected'){
-                //     arrayContainerOne.removeChild(item[firstElementClicked]);
-                //     clickCountArray = 2;
-                // }
-                console.log(SecondElementClicked)
-                addIdToAllElements();
-                e.target.classList.add('item-selected');
-                SecondElementClicked = e.target.id;
-                deleteCountNum = (parseInt(SecondElementClicked)+1) - firstElementClicked;
-                userStatus.innerText = `Splice( index: ${firstElementClicked}, Delete Count: ${deleteCountNum})`;
-                RemoveItemsUsingSplice(firstElementClicked, SecondElementClicked);
-                reorderIndexNumbers(700);         
             }
-        }
+        // }    
     })
 }
 
-function addIdToAllElements(){
-    itemsArray = Array.from(item);
-    itemsArray.forEach((element, index)=>{
-        element.setAttribute('id', index);
-    });
-}
+
 
 function RemoveItemsUsingSplice(firstIndex, secondIndex){
     itemsArray = Array.from(item);
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
+    const shift_previewNextElement = document.querySelector('.shift-item');
     if(parseInt(firstIndex) > parseInt(secondIndex)){
-        console.log('firstIndex', typeof firstIndex, 'secondIndex', secondIndex)
-        
+        console.log('firstIndex', typeof firstIndex, 'secondIndex', secondIndex);
         console.log('invalid input')
         userStatus.innerText = `INVALID INPUT - Click On Splice to Begin Again`;
         userStatus.style.color = 'red';
@@ -251,13 +250,13 @@ function RemoveItemsUsingSplice(firstIndex, secondIndex){
     }  
     setTimeout(()=>{
         for(let i = parseInt(firstIndex); i <= parseInt(secondIndex); i++){
-            gsap.fromTo(item[firstIndex], {opacity: 0, x:0}, {opacity: 1, x:-700, duration: 1});
+            gsap.fromTo(item[firstIndex], {opacity: 0, x:0}, {opacity: 1, x:-700, duration: .5});
             console.log(i);
             console.log(parseInt(secondIndex));
             arrayContainerOne.removeChild(item[firstIndex]);
             setTimeOutProcessing = !setTimeOutProcessing;
             removeClickedStyles();
-            reorderIndexNumbers(time = 100);
+            reorderIndexNumbers(time = 800);
         }
         if(itemsArray.length === 0){
             pop_previewNextElement.innerText = `[ ]`;
@@ -266,7 +265,8 @@ function RemoveItemsUsingSplice(firstIndex, secondIndex){
             pop_previewNextElement.innerText = `[${itemsArray.length-1}]`;
         }
         push_previewNextElement.innerText = `[${itemsArray.length}]`;
-    }, 1000);
+       
+    }, 500);
 }
 
 function removeClickedStyles (){
@@ -276,7 +276,15 @@ function removeClickedStyles (){
     });
 }
 
+function addIdToAllElements(){
+    itemsArray = Array.from(item);
+    itemsArray.forEach((element, index)=>{
+        element.setAttribute('id', index);
+    });
+}
+
 function unshift(){
+    removeUserStatus();
     let checkIfArrayIsFull = limitArrayAmount();
     if(checkIfArrayIsFull) {
         
@@ -284,11 +292,14 @@ function unshift(){
     }
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
+    const shift_previewNextElement = document.querySelector('.shift-item');
+
     itemsArray = Array.from(item);
     
     // let itemsArrayLength = itemsArray.length+1;
     push_previewNextElement.innerText = `[${itemsArray.length + 1}]`
     pop_previewNextElement.innerText = `[${itemsArray.length}]`;
+    shift_previewNextElement.innerText = `[0]`;
     //create new element
     removeUserStatus();
     const newItem = document.createElement('div');
@@ -333,8 +344,10 @@ function shift(){
 }
 
 function pop(){
+    removeUserStatus();
     itemsArray = Array.from(item);
     const push_previewNextElement = document.querySelector('.push-item');
+    const shift_previewNextElement = document.querySelector('.shift-item');
     if(item.length === 0) return 
     if(setTimeOutProcessing === false){
         setTimeOutProcessing = true;
@@ -343,14 +356,17 @@ function pop(){
             arrayContainerOne.removeChild(item[item.length-1]);
             setTimeOutProcessing = !setTimeOutProcessing;
             push_previewNextElement.innerText = `[${itemsArray.length-1}]`;
+
             // push_previewNextElement.innerText = 'hello';
             previewNextElement_POP()
             reorderIndexNumbers(700);
+            removeClickedStyles();
          }, 100);
     }
 }
 
 function push(){
+    removeUserStatus();
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
     itemsArray = Array.from(item);
@@ -364,7 +380,7 @@ function push(){
     pop_previewNextElement.innerText = `[${itemsArray.length}]`;
     previewNextElement_PUSH();
     reorderIndexNumbers(700);
-    
+    removeClickedStyles();
 }
 
 function reorderIndexNumbers(time){
