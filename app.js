@@ -36,6 +36,7 @@ clearBtn.addEventListener('click', clear);
 let setTimeOutProcessing = false;
 let clickCountArray = 0;
 let spliceActive = false;
+let isSpliceActive = false;
 
 loadPageWithRandomArrayAmount();
 // previewNextElement();
@@ -135,7 +136,7 @@ function updateTheNextPreviewIndex(){
 }
 
 function loadPageWithRandomArrayAmount(){
-    let arrayAmount = Math.floor(Math.random() * 2) + 5;
+    let arrayAmount = Math.floor(Math.random() * 9) + 2;
     for(let i = 0; i <arrayAmount; i++){
         const newItem = document.createElement('div');
         newItem.classList.add('item');
@@ -187,10 +188,12 @@ function splice(){
         console.log('hello')
         return
     }
+    removeClickedStyles();
     userStatus.style.color = 'black';
     let firstElementClicked;
     let SecondElementClicked;
     userStatus.style.opacity = 1;
+    isSpliceActive = false;
     userStatus.innerText = 'Please Select Start Index';
     //remove styling 
     if(clickCountArray === 2){
@@ -201,11 +204,18 @@ function splice(){
         // userStatus.style.opacity = 0;
     }
     arrayContainerOne.addEventListener('click', (e)=>{
+        if(isSpliceActive === false){
             let deleteCountNum; 
             if(clickCountArray < 2){
                 if(e.target.classList[0] !== 'item' || e.target.classList[1] === 'item-selected') return
                     clickCountArray++;
                 if(clickCountArray === 1){
+                    if(e.target.classList[1] === 'item-selected'){
+                        arrayContainerOne.removeChild(item[firstElementClicked]);
+                        clickCountArray = 0;
+                        userStatus.innerText = 'it worked';
+                        return
+                    }
                     addIdToAllElements();
                     e.target.classList.add('item-selected');
                     userStatus.innerText = 'Please select Range ( delete count )';
@@ -216,19 +226,22 @@ function splice(){
                         clickCountArray = 2;
                         userStatus.innerText = 'Single Element was removed!'
                     }
+                   
                 
                     reorderIndexNumbers(700);
                 }else if(clickCountArray === 2){
                     console.log(SecondElementClicked)
                     addIdToAllElements();
-                    e.target.classList.add('item-selected');
                     SecondElementClicked = e.target.id;
+                    e.target.classList.add('item-selected');
                     deleteCountNum = (parseInt(SecondElementClicked)+1) - firstElementClicked;
                     userStatus.innerText = `Splice( index: ${firstElementClicked}, Delete Count: ${deleteCountNum})`;
                     RemoveItemsUsingSplice(firstElementClicked, SecondElementClicked);
                     reorderIndexNumbers(700);         
                 }
             }
+        }
+            
         // }    
     })
 }
@@ -236,6 +249,7 @@ function splice(){
 
 
 function RemoveItemsUsingSplice(firstIndex, secondIndex){
+    isSpliceActive = true;
     itemsArray = Array.from(item);
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
@@ -244,7 +258,8 @@ function RemoveItemsUsingSplice(firstIndex, secondIndex){
         console.log('firstIndex', typeof firstIndex, 'secondIndex', secondIndex);
         console.log('invalid input')
         userStatus.innerText = `INVALID INPUT - Click On Splice to Begin Again`;
-        userStatus.style.color = 'red';
+        // userStatus.style.color = 'red';
+        // clickCountArray = 2;
         userStatus.style.opacity = 1;
         removeClickedStyles();
     }  
@@ -254,7 +269,7 @@ function RemoveItemsUsingSplice(firstIndex, secondIndex){
             console.log(i);
             console.log(parseInt(secondIndex));
             arrayContainerOne.removeChild(item[firstIndex]);
-            setTimeOutProcessing = !setTimeOutProcessing;
+            setTimeOutProcessing = false;
             removeClickedStyles();
             reorderIndexNumbers(time = 800);
         }
@@ -270,6 +285,7 @@ function RemoveItemsUsingSplice(firstIndex, secondIndex){
 }
 
 function removeClickedStyles (){
+    clickCountArray = 0;
     itemsArray = Array.from(item);
     itemsArray.forEach((element, index)=>{
         element.classList.remove('item-selected');
@@ -304,7 +320,7 @@ function unshift(){
     removeUserStatus();
     const newItem = document.createElement('div');
     newItem.setAttribute('class', 'item');
-    gsap.fromTo(newItem, {opacity: 0, x:-100}, {opacity: 1, x:0, duration: .5});
+    gsap.fromTo(newItem, {opacity: 0, x:-400}, {opacity: 1, x:0, duration: .5});
     arrayContainerOne.insertBefore(newItem, arrayContainerOne.children[0]);
     previewNextElement_UNSHIFT();
     reorderIndexNumbers(700);
@@ -317,6 +333,7 @@ function shift(){
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
     console.log(itemsArray.length)
+    console.log(setTimeOutProcessing);
     
     if(item.length === 0) return 
     
@@ -338,7 +355,7 @@ function shift(){
             
             reorderIndexNumbers(700);
             removeClickedStyles();
-        }, 100);
+        }, 300);
     }
     
 }
@@ -361,7 +378,7 @@ function pop(){
             previewNextElement_POP()
             reorderIndexNumbers(700);
             removeClickedStyles();
-         }, 100);
+         }, 300);
     }
 }
 
@@ -403,7 +420,6 @@ function oddEvenColorShift(element, index){
 
 function removeUserStatus(){
     userStatus.style.opacity = 0;
-    // 
     clickCountArray = 2;
 }
 
