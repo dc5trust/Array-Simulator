@@ -13,7 +13,7 @@ button {
   border: 0.1rem outset rgb(252, 252, 252);
   background-color: rgb(243, 241, 241);
   border-radius: 1rem;
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 1.7rem;
   cursor: pointer;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   font-size: 1.4rem;
@@ -27,7 +27,8 @@ button:hover {
 }
 
 #main-page {
-  min-height: 95vh;
+  min-height: 100vh;
+  background-color: rgb(159, 165, 185);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,10 +43,10 @@ button:hover {
 #main-page .app-title {
   text-align: center;
   font-family: "Dancing Script", cursive;
-  font-size: 8rem;
+  font-size: 10rem;
 }
 #main-page .array-simulator {
-  height: 40vh;
+  min-height: 45vh;
   width: 90%;
   margin: auto;
   display: flex;
@@ -54,9 +55,9 @@ button:hover {
   flex-direction: column;
 }
 #main-page .array {
-  background-color: rgb(230, 230, 230);
-  height: 27rem;
-  width: 72.5rem;
+  background-color: rgb(255, 255, 255);
+  height: 35rem;
+  width: 98.5rem;
   margin: auto;
   display: flex;
   flex-shrink: 0;
@@ -64,12 +65,12 @@ button:hover {
   align-items: center;
   border-radius: 1.5rem;
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-  border: 3px outset rgb(201, 201, 201);
+  border: 3px double rgb(201, 201, 201);
 }
 #main-page .item {
-  height: 24rem;
-  width: 5rem;
-  background-color: rgb(123, 221, 248);
+  height: 32rem;
+  width: 7rem;
+  background-color: rgb(213, 211, 211);
   margin-left: 0.5rem;
   border-radius: 1.5rem;
   text-align: center;
@@ -78,11 +79,11 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.3rem rgb(255, 255, 255) inset;
+  border: 0.3rem rgb(255, 255, 255) outset;
 }
 #main-page .button-container {
   min-height: 40rem;
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -98,7 +99,7 @@ button:hover {
 }
 
 #main-page .item-selected {
-  border: 5px outset rgb(253, 94, 94);
+  border: 5px solid rgb(49, 49, 49);
 }
 #main-page .user-info {
   font-size: 2.5rem;
@@ -107,13 +108,6 @@ button:hover {
   width: 100%;
 }
 
-.button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 30vh;
-}
 .button-container .group-btn-container {
   display: flex;
   justify-content: center;
@@ -131,6 +125,10 @@ button:hover {
 .button-container .individual-btn-container .next-element-container {
   height: 20rem;
   width: 12rem;
+  background-color: rgb(255, 255, 255);
+  border: 3px double rgb(201, 201, 201);
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1), 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,7 +138,7 @@ button:hover {
 .button-container .individual-btn-container .small-item {
   height: 15.5rem;
   width: 5rem;
-  background-color: rgb(123, 221, 248);
+  background-color: rgb(213, 211, 211);
   margin-left: 0.5rem;
   border-radius: 1.5rem;
   text-align: center;
@@ -149,14 +147,267 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 0.3rem rgb(232, 232, 232) inset;
+  border: 0.3rem rgb(255, 255, 255) inset;
+}
+.button-container .individual-btn-container .push-item, .button-container .individual-btn-container .unshift-item {
+  border: 0.5rem rgb(152, 254, 147) inset;
+}
+.button-container .individual-btn-container .shift-item, .button-container .individual-btn-container .pop-item {
+  border: 0.5rem rgb(254, 147, 147) inset;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1070px) {
   #main-page .array {
-    width: 60rem;
+    width: 79rem;
+  }
+  #main-page .item {
+    width: 5.5rem;
+  }
+}
+@media only screen and (max-width: 855px) {
+  #main-page .title-container {
+    height: 12.5vh;
+    width: 90%;
+    margin: auto;
+  }
+  #main-page .splice-clear-container {
+    width: 90%;
+    margin: auto;
+  }
+  #main-page .array-simulator {
+    height: 40vh;
+    width: 100%;
+    margin: auto;
+  }
+  #main-page .array {
+    width: 59.5rem;
   }
   #main-page .item {
     width: 4rem;
+  }
+
+  .button-container .individual-btn-container {
+    height: 25rem;
+    width: 17rem;
+  }
+  .button-container .individual-btn-container .next-element-container {
+    height: 15rem;
+    width: 10rem;
+    background-color: rgb(255, 255, 255);
+    border: 3px double rgb(201, 201, 201);
+  }
+  .button-container .individual-btn-container .small-item {
+    height: 12.5rem;
+    width: 4rem;
+    font-size: 1.4rem;
+    border: 0.3rem rgb(255, 255, 255) inset;
+  }
+  .button-container .individual-btn-container .push-item, .button-container .individual-btn-container .unshift-item {
+    border: 0.5rem rgb(152, 254, 147) inset;
+  }
+  .button-container .individual-btn-container .shift-item, .button-container .individual-btn-container .pop-item {
+    border: 0.5rem rgb(254, 147, 147) inset;
+  }
+}
+@media only screen and (max-width: 680px) {
+  button {
+    padding: 0.6rem 1rem;
+    font-size: 1.3rem;
+  }
+
+  #main-page .user-info {
+    font-size: 1.7rem;
+  }
+  #main-page .title-container {
+    height: 10vh;
+  }
+  #main-page .app-title {
+    font-size: 7.5rem;
+  }
+  #main-page .array-simulator {
+    height: 40vh;
+    width: 100%;
+    margin: auto;
+  }
+  #main-page .array {
+    width: 46.5rem;
+  }
+  #main-page .item {
+    width: 3rem;
+    font-size: 1.4rem;
+  }
+  #main-page .button-container {
+    width: 75%;
+  }
+
+  .button-container .individual-btn-container {
+    height: 22rem;
+    width: 18rem;
+  }
+  .button-container .individual-btn-container .next-element-container {
+    height: 15rem;
+    width: 10rem;
+  }
+  .button-container .individual-btn-container .small-item {
+    height: 12.5rem;
+    width: 4rem;
+    font-size: 1.4rem;
+    border: 0.3rem rgb(255, 255, 255) inset;
+  }
+  .button-container .individual-btn-container .push-item, .button-container .individual-btn-container .unshift-item {
+    border: 0.5rem rgb(152, 254, 147) inset;
+  }
+  .button-container .individual-btn-container .shift-item, .button-container .individual-btn-container .pop-item {
+    border: 0.5rem rgb(254, 147, 147) inset;
+  }
+}
+@media only screen and (max-width: 492px) {
+  #main-page .title-container {
+    height: 6vh;
+  }
+  #main-page .app-title {
+    font-size: 4.75rem;
+  }
+  #main-page .splice-clear-container {
+    min-height: 1rem;
+  }
+  #main-page .array-simulator {
+    min-height: 25vh;
+    width: 100%;
+  }
+  #main-page .array {
+    width: 41rem;
+  }
+  #main-page .item {
+    width: 2.6rem;
+    font-size: 1.4rem;
+  }
+  #main-page .button-container {
+    width: 75%;
+  }
+
+  .button-container .individual-btn-container {
+    height: 22rem;
+    width: 15rem;
+  }
+  .button-container .individual-btn-container .next-element-container {
+    height: 15rem;
+    width: 10rem;
+  }
+  .button-container .individual-btn-container .small-item {
+    height: 12.5rem;
+    width: 4rem;
+    font-size: 1.4rem;
+    border: 0.3rem rgb(255, 255, 255) inset;
+  }
+  .button-container .individual-btn-container .push-item, .button-container .individual-btn-container .unshift-item {
+    border: 0.5rem rgb(152, 254, 147) inset;
+  }
+  .button-container .individual-btn-container .shift-item, .button-container .individual-btn-container .pop-item {
+    border: 0.5rem rgb(254, 147, 147) inset;
+  }
+}
+@media only screen and (max-width: 418px) {
+  #main-page {
+    height: 100%;
+  }
+  #main-page .user-info {
+    font-size: 1.5rem;
+  }
+  #main-page .title-container {
+    height: 6vh;
+  }
+  #main-page .app-title {
+    font-size: 4.75rem;
+  }
+  #main-page .splice-clear-container {
+    min-height: 1rem;
+  }
+  #main-page .array-simulator {
+    min-height: 10vh;
+    width: 100%;
+  }
+  #main-page .array {
+    width: 38rem;
+    height: 24rem;
+  }
+  #main-page .item {
+    width: 2.35rem;
+    height: 22rem;
+    font-size: 0.9rem;
+  }
+  #main-page .button-container {
+    width: 75%;
+  }
+
+  .button-container .individual-btn-container {
+    height: 17rem;
+    width: 13rem;
+  }
+  .button-container .individual-btn-container .next-element-container {
+    height: 12.5rem;
+    width: 10rem;
+  }
+  .button-container .individual-btn-container .small-item {
+    height: 10rem;
+    width: 4rem;
+    font-size: 1.4rem;
+    border: 0.3rem rgb(255, 255, 255) inset;
+  }
+  .button-container .individual-btn-container .push-item, .button-container .individual-btn-container .unshift-item {
+    border: 0.5rem rgb(152, 254, 147) inset;
+  }
+  .button-container .individual-btn-container .shift-item, .button-container .individual-btn-container .pop-item {
+    border: 0.5rem rgb(254, 147, 147) inset;
+  }
+}
+@media only screen and (max-width: 384px) {
+  #main-page .title-container {
+    height: 9vh;
+  }
+  #main-page .app-title {
+    font-size: 4.5rem;
+  }
+  #main-page .array-simulator {
+    height: 25rem;
+  }
+  #main-page .array {
+    width: 34.1rem;
+    height: 20rem;
+  }
+  #main-page .item {
+    width: 2.35rem;
+    height: 18rem;
+    font-size: 0.9rem;
+  }
+
+  .button-container .group-btn-container {
+    margin-bottom: 3rem;
+  }
+  .button-container .individual-btn-container {
+    height: 17rem;
+    width: 13rem;
+    justify-content: space-around;
+  }
+  .button-container .individual-btn-container .next-element-container {
+    height: 9rem;
+    width: 10rem;
+  }
+  .button-container .individual-btn-container .small-item {
+    height: 8rem;
+    width: 4rem;
+    font-size: 1.4rem;
+    border: 0.3rem rgb(255, 255, 255) inset;
+  }
+  .button-container .individual-btn-container .push-item, .button-container .individual-btn-container .unshift-item {
+    border: 0.5rem rgb(152, 254, 147) inset;
+  }
+  .button-container .individual-btn-container .shift-item, .button-container .individual-btn-container .pop-item {
+    border: 0.5rem rgb(254, 147, 147) inset;
+  }
+}
+@media only screen and (max-width: 340px) {
+  html {
+    display: none;
   }
 }/*# sourceMappingURL=style.css.map */

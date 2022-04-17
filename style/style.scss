@@ -13,7 +13,7 @@ button{
     border: .1rem outset rgb(252, 252, 252);
     background-color: rgb(243, 241, 241);
     border-radius: 1rem;
-    padding: .8rem 1.5rem;
+    padding: 1rem 1.7rem;
     cursor: pointer;
     box-shadow: 0 3px 3px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.1);
     font-size: 1.4rem;
@@ -26,9 +26,14 @@ button{
     }
 }
 
+//variables 
+$containerMainColor: rgb(255, 255, 255);
+$itemMainColor: rgb(213, 211, 211);
+
 #main-page{
-    min-height: 95vh;
-    // background-color: rgb(82, 171, 196);
+    min-height: 100vh;
+    background-color: rgb(159, 165, 185);
+    // background-color: rgb(201, 241, 251);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,14 +49,14 @@ button{
     .app-title{
         text-align: center;
         font-family: 'Dancing Script', cursive;
-        font-size: 8rem;
+        font-size: 10rem;
     }
     //array container
     .array-simulator{
-        height: 40vh;
+        min-height: 45vh;
         width: 90%;
         margin: auto;
-        // background-color: rgb(222, 223, 223);
+        // background-color: rgb(90, 255, 255);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -59,9 +64,9 @@ button{
     }
     //each individual array container
     .array{
-        background-color: rgb(230, 230, 230);
-        height: 27rem;
-        width: 72.5rem; // 72.5rem
+        background-color: $containerMainColor;
+        height: 35rem;
+        width: 98.5rem; // 72.5rem
         margin: auto; 
         display: flex;
         flex-shrink: 0;
@@ -69,13 +74,13 @@ button{
         align-items: center;
         border-radius: 1.5rem;
         box-shadow: 0 15px 15px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.15);
-        border: 3px outset rgb(201, 201, 201);
+        border: 3px double rgb(201, 201, 201);
     }
     //individual items within a single array 
     .item{
-        height: 24rem;
-        width: 5rem;
-        background-color: rgb(123, 221, 248);
+        height: 32rem;
+        width: 7rem;
+        background-color: $itemMainColor;
         margin-left: .5rem;
         border-radius: 1.5rem;
         text-align: center;
@@ -84,15 +89,16 @@ button{
         display: flex;
         justify-content: center;
         align-items: center;
-        border: .3rem rgb(255, 255, 255) inset;
+        border: .3rem rgb(255, 255, 255) outset;
     }
     .button-container{
         min-height: 40rem;
-        width: 90%;
+        width: 100%;
         margin: auto;
         display: flex;
         justify-content: center;
         align-items: center;
+        // background-color: aquamarine;
     }
     .splice-clear-container{
         min-height: 1rem;
@@ -101,13 +107,13 @@ button{
         display: flex;
         justify-content: space-around;
         align-items: center;
-
+        // background-color: azure;
     }
 }
 
 #main-page{
     .item-selected{
-        border: 5px outset rgb(253, 94, 94);
+        border: 5px solid rgb(49, 49, 49);
     }
     .user-info{
         font-size: 2.5rem;
@@ -117,12 +123,15 @@ button{
     }
 }
 
+//you have two of these! fix that please 
 .button-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 30vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: column;
+    // height: 30vh;
+    // width: 100vw;
+    // background-color: aqua;
 
     .group-btn-container{
         display: flex;
@@ -138,12 +147,14 @@ button{
         flex-direction: column;
         height: 30rem;
         width: 20rem;
-        // background-color: grey;
         
         .next-element-container{
             height: 20rem;
             width: 12rem;
-            // background-color: aquamarine;
+            background-color: $containerMainColor;
+            border: 3px double rgb(201, 201, 201);
+            box-shadow: 0 15px 15px rgba(0,0,0,.1), 0 4px 4px 0 rgba(0,0,0,.15);
+            border-radius: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -154,7 +165,7 @@ button{
         .small-item{
         height: 15.5rem;
         width: 5rem;
-        background-color: rgb(123, 221, 248);
+        background-color: $itemMainColor;
         margin-left: .5rem;
         border-radius: 1.5rem;
         text-align: center;
@@ -163,7 +174,14 @@ button{
         display: flex;
         justify-content: center;
         align-items: center;
-        border: .3rem rgb(232, 232, 232) inset;
+        border: .3rem rgb(255, 255, 255) inset;
+        }
+
+        .push-item, .unshift-item{
+            border: .5rem rgb(152, 254, 147) inset;
+        }
+        .shift-item, .pop-item{
+            border: .5rem rgb(254, 147, 147) inset;
         }
     }
 

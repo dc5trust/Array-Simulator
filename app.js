@@ -4,6 +4,7 @@ const arrayContainerOne = document.querySelector('.array-one');
 const items = document.querySelectorAll('.item');
 const item = arrayContainerOne.children;
 let itemsArray = Array.from(item);
+
 const userStatus = document.querySelector('.user-info');
 const unshift_nextElement_container = document.querySelector('unshift-next-element-container')
 const push_nextContainer = document.querySelector('.push-next-container');
@@ -16,6 +17,7 @@ const push_previewNextElement = document.querySelector('.push-item');
 const pop_previewNextElement = document.querySelector('.pop-item');
 const shift_previewNextElement = document.querySelector('.shift-item');
 const unshift_previewNextElement = document.querySelector('.unshift-item');
+
 //buttons 
 const unshiftBtn = document.querySelector('#unshift');
 const shiftBtn = document.querySelector('#shift');
@@ -39,7 +41,6 @@ let spliceActive = false;
 let isSpliceActive = false;
 
 loadPageWithRandomArrayAmount();
-// previewNextElement();
 
 function previewNextElement_PUSH(){
     if(setTimeOutProcessing === false){
@@ -137,6 +138,7 @@ function updateTheNextPreviewIndex(){
 
 function loadPageWithRandomArrayAmount(){
     let arrayAmount = Math.floor(Math.random() * 9) + 2;
+    // let arrayAmount = 13;
     for(let i = 0; i <arrayAmount; i++){
         const newItem = document.createElement('div');
         newItem.classList.add('item');
@@ -311,12 +313,9 @@ function unshift(){
     const shift_previewNextElement = document.querySelector('.shift-item');
 
     itemsArray = Array.from(item);
-    
-    // let itemsArrayLength = itemsArray.length+1;
     push_previewNextElement.innerText = `[${itemsArray.length + 1}]`
     pop_previewNextElement.innerText = `[${itemsArray.length}]`;
     shift_previewNextElement.innerText = `[0]`;
-    //create new element
     removeUserStatus();
     const newItem = document.createElement('div');
     newItem.setAttribute('class', 'item');
@@ -355,7 +354,7 @@ function shift(){
             
             reorderIndexNumbers(700);
             removeClickedStyles();
-        }, 300);
+        }, 400);
     }
     
 }
@@ -378,7 +377,7 @@ function pop(){
             previewNextElement_POP()
             reorderIndexNumbers(700);
             removeClickedStyles();
-         }, 300);
+         }, 400);
     }
 }
 

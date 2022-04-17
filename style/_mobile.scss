@@ -1,11 +1,305 @@
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1070px) {
         #main-page{
-
+            // container that holds items( array )
             .array{
-                width: 60rem;
+                width: 79rem;
             }
+            //each individual array element size 
             .item{
-                width: 4rem;
+                width: 5.5rem;
             }
         }
     }   
+
+@media only screen and (max-width: 855px){
+    #main-page{
+        .title-container{
+            height: 12.5vh;
+            width: 90%;
+            margin: auto;
+        }
+        //button container right below the main title
+        .splice-clear-container{
+            width: 90%;
+            margin: auto;
+        }
+        //container for 'array' & splice/clear all button
+        .array-simulator{
+            height: 40vh;
+            width: 100%;
+            margin: auto;
+        }
+         // container that holds items( array )
+        .array{
+            width: 59.5rem;
+        }
+        //each individual array element size 
+        .item{
+            width: 4rem;
+        }
+    }
+    .button-container{
+        //this container holds the button & smaller array item box
+        .individual-btn-container{
+            height: 25rem;
+            width: 17rem;
+            //container that holds 'smaller' array item, the next up in pop,push,shift,unshift
+            .next-element-container{
+                height: 15rem;
+                width: 10rem;
+                background-color: $containerMainColor;
+                border: 3px double rgb(201, 201, 201);
+            }
+            //each individual (small) array element in the preview box above the push/pop/shift/unshift btn
+            .small-item{
+            height: 12.5rem;
+            width: 4rem;
+            font-size: 1.4rem;
+            border: .3rem rgb(255, 255, 255) inset;
+            }
+            //small array class for each respective item, it adds unique color 
+            .push-item, .unshift-item{
+                border: .5rem rgb(152, 254, 147) inset;
+            }
+            .shift-item, .pop-item{
+                border: .5rem rgb(254, 147, 147) inset;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 680px){
+    button{
+        padding: .6rem 1rem;
+        font-size: 1.3rem;
+    }
+    #main-page{
+        //Info that is display upon array full, splice instructions for end user
+        .user-info{
+            font-size: 1.7rem;
+        }
+        //main & only app container 
+        .title-container{
+            height: 10vh;
+        }
+        .app-title{
+            font-size: 7.5rem;
+        }
+        .array-simulator{
+            height: 40vh;
+            width: 100%;
+            margin: auto;
+            // background-color: rgb(134, 255, 255);
+            
+        }
+        .array{
+            width: 46.5rem;
+        }
+        .item{
+            width: 3rem;
+            font-size: 1.4rem;
+        }
+
+        .button-container{
+            width: 75%;
+        }
+    }
+
+    .button-container{
+
+        .individual-btn-container{
+            height: 22rem;
+            width: 18rem;
+            .next-element-container{
+                height: 15rem;
+                width: 10rem;
+            }
+    
+            .small-item{
+            height: 12.5rem;
+            width: 4rem;
+            font-size: 1.4rem;
+            border: .3rem rgb(255, 255, 255) inset;
+            }
+            .push-item, .unshift-item{
+                border: .5rem rgb(152, 254, 147) inset;
+            }
+            .shift-item, .pop-item{
+                border: .5rem rgb(254, 147, 147) inset;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 492px){
+    #main-page{
+        .title-container{
+            height: 6vh;
+        }
+        .app-title{
+            font-size: 4.75rem;
+        }
+        .splice-clear-container{
+            min-height: 1rem;
+        }
+
+        .array-simulator{
+            min-height: 25vh;
+            width: 100%;
+        }
+
+        .array{
+            width: 41rem;
+        }
+        .item{
+            width: 2.6rem;
+            font-size: 1.4rem;
+        }
+        .button-container{
+         
+            width: 75%;
+        }
+    }
+    .button-container{
+
+        .individual-btn-container{
+            height: 22rem;
+            width: 15rem;
+            .next-element-container{
+                height: 15rem;
+                width: 10rem;
+            }
+    
+            .small-item{
+            height: 12.5rem;
+            width: 4rem;
+            font-size: 1.4rem;
+            border: .3rem rgb(255, 255, 255) inset;
+            }
+            .push-item, .unshift-item{
+                border: .5rem rgb(152, 254, 147) inset;
+            }
+            .shift-item, .pop-item{
+                border: .5rem rgb(254, 147, 147) inset;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 418px){
+    #main-page{
+        height: 100%;
+        .user-info{
+            font-size: 1.5rem;
+        }
+        .title-container{
+            height: 6vh;
+        }
+        .app-title{
+            font-size: 4.75rem;
+        }
+        .splice-clear-container{
+            min-height: 1rem;
+        }
+
+        .array-simulator{
+            min-height: 10vh;
+            width: 100%;
+        }
+
+        .array{
+            width: 38rem;
+            height: 24rem;
+        }
+        .item{
+            width: 2.35rem;
+            height: 22rem;
+            font-size: .9rem;
+        }
+        .button-container{
+            width: 75%;
+        }
+    }
+    
+    .button-container{
+
+        .individual-btn-container{
+            height: 17rem;
+            width: 13rem;
+            .next-element-container{
+                height: 12.5rem;
+                width: 10rem;
+            }
+    
+            .small-item{
+                height: 10rem;
+                width: 4rem;
+                font-size: 1.4rem;
+                border: .3rem rgb(255, 255, 255) inset;
+            }
+            .push-item, .unshift-item{
+                border: .5rem rgb(152, 254, 147) inset;
+            }
+            .shift-item, .pop-item{
+                border: .5rem rgb(254, 147, 147) inset;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 384px){
+    #main-page{
+        .title-container{
+            height: 9vh;
+        }
+        .app-title{
+            font-size: 4.5rem;
+        }
+        .array-simulator{
+            height: 25rem;
+        }
+
+        .array{
+            width: 34.1rem;
+            height: 20rem;
+        }
+        .item{
+            width: 2.35rem;
+            height: 18rem;
+            font-size: .9rem;
+        }
+    }
+    .button-container{
+    
+        .group-btn-container{
+            margin-bottom: 3rem;
+        }
+        .individual-btn-container{
+            height: 17rem;
+            width: 13rem;
+            justify-content: space-around;
+            .next-element-container{
+                height: 9rem;
+                width: 10rem;
+            }
+            .small-item{
+            height: 8rem;
+            width: 4rem;
+            font-size: 1.4rem;
+            border: .3rem rgb(255, 255, 255) inset;
+            }
+            .push-item, .unshift-item{
+                border: .5rem rgb(152, 254, 147) inset;
+            }
+            .shift-item, .pop-item{
+                border: .5rem rgb(254, 147, 147) inset;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 340px){
+   html{
+       display: none;
+   }
+}
