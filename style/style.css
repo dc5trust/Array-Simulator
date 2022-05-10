@@ -82,6 +82,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   border: 0.3rem rgb(255, 255, 255) outset;
+  pointer-events: none;
 }
 #main-page .button-container {
   min-height: 40rem;

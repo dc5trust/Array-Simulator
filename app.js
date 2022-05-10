@@ -188,20 +188,23 @@ function splice(){
         userStatus.style.opacity = 1;
         return
     }
+    //add pointer events back to allow user to select items to delete from Array
+    itemsArray.forEach((item)=>{
+        item.style.pointerEvents = 'auto';
+    })
     removeClickedStyles();
     userStatus.style.color = 'black';
     userStatus.style.opacity = 1;
     isSpliceActive = false;
     userStatus.innerText = 'Please Select Start Index';
     arrayContainerOne.style.cursor = 'pointer';
-    arrayContainerOne.style.pointerEvents = 'auto'
-    
+    // arrayContainerOne.style.pointerEvents = 'auto'
     //remove styling 
     if(clickCountArray === 2){
         removeClickedStyles();
         clickCountArray = 0;
         arrayContainerOne.style.cursor = 'pointer';
-        arrayContainerOne.style.pointerEvents = 'auto';
+        // arrayContainerOne.style.pointerEvents = 'auto';
     }
     
 }
