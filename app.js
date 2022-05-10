@@ -26,6 +26,7 @@ const popBtn = document.querySelector('#pop');
 const spliceBtn = document.querySelector('#splice');
 const clearBtn = document.querySelector('#clear');
 
+
 //Event Listeners
 unshiftBtn.addEventListener('click', unshift);
 shiftBtn.addEventListener('click', shift);
@@ -33,12 +34,13 @@ popBtn.addEventListener('click', pop);
 pushBtn.addEventListener('click', push);
 spliceBtn.addEventListener('click', splice)
 clearBtn.addEventListener('click', clear);
+arrayContainerOne.addEventListener('click', UserSelectsItemsFromArray);
 
 //global Variables
 let setTimeOutProcessing = false;
 let clickCountArray = 0;
-let spliceActive = false;
 let isSpliceActive = false;
+let firstElementClicked, SecondElementClicked;
 
 loadPageWithRandomArrayAmount();
 
@@ -157,7 +159,6 @@ function clear(){
     const pop_previewNextElement = document.querySelector('.pop-item');
     const shift_previewNextElement = document.querySelector('.shift-item');
     if(itemsArray.length === 0){
-        console.log('array is empty mate')
         loadPageWithRandomArrayAmount();
     }
     itemsArray.forEach((element, index)=>{
@@ -183,93 +184,82 @@ function clear(){
 
 function splice(){
     itemsArray = Array.from(item);
-    console.log(typeof itemsArray.length);
     if(itemsArray.length === 0){
         userStatus.innerText = 'Array is Empty!';
         userStatus.style.opacity = 1;
-        console.log('hello')
         return
     }
     removeClickedStyles();
     userStatus.style.color = 'black';
-    let firstElementClicked;
-    let SecondElementClicked;
     userStatus.style.opacity = 1;
     isSpliceActive = false;
     userStatus.innerText = 'Please Select Start Index';
+    arrayContainerOne.style.cursor = 'pointer';
+    arrayContainerOne.style.pointerEvents = 'auto'
+    
     //remove styling 
     if(clickCountArray === 2){
         removeClickedStyles();
         clickCountArray = 0;
-        console.log('hello')
         arrayContainerOne.style.cursor = 'pointer';
-        // userStatus.style.opacity = 0;
+        arrayContainerOne.style.pointerEvents = 'auto';
     }
-    arrayContainerOne.addEventListener('click', (e)=>{
-        if(isSpliceActive === false){
-            let deleteCountNum; 
-            if(clickCountArray < 2){
-                if(e.target.classList[0] !== 'item' || e.target.classList[1] === 'item-selected') return
-                    clickCountArray++;
-                if(clickCountArray === 1){
-                    if(e.target.classList[1] === 'item-selected'){
-                        arrayContainerOne.removeChild(item[firstElementClicked]);
-                        clickCountArray = 0;
-                        userStatus.innerText = 'it worked';
-                        return
-                    }
-                    addIdToAllElements();
-                    e.target.classList.add('item-selected');
-                    userStatus.innerText = 'Please select Range ( delete count )';
-                    firstElementClicked = e.target.id;
-                    //if array has one element, splice should delete the element upon user click
-                    if(itemsArray.length === 1){
-                        arrayContainerOne.removeChild(item[firstElementClicked]);
-                        clickCountArray = 2;
-                        userStatus.innerText = 'Single Element was removed!'
-                    }
-                   
-                
-                    reorderIndexNumbers(700);
-                }else if(clickCountArray === 2){
-                    console.log(SecondElementClicked)
-                    addIdToAllElements();
-                    SecondElementClicked = e.target.id;
-                    e.target.classList.add('item-selected');
-                    deleteCountNum = (parseInt(SecondElementClicked)+1) - firstElementClicked;
-                    userStatus.innerText = `Splice( index: ${firstElementClicked}, Delete Count: ${deleteCountNum})`;
-                    RemoveItemsUsingSplice(firstElementClicked, SecondElementClicked);
-                    reorderIndexNumbers(700);         
-                }
+    
+}
+
+function UserSelectsItemsFromArray(e){
+    if(isSpliceActive === false){
+        let deleteCountNum; 
+        if(clickCountArray < 2){
+            if(e.target.classList[0] !== 'item' ) return
+                clickCountArray++;
+            if(clickCountArray === 1){
+                console.log('before count ', clickCountArray);
+                addIdToAllElements();
+                e.target.classList.add('item-selected');
+                userStatus.innerText = 'Please select Range ( delete count )';
+                firstElementClicked = e.target.id;
+                //if array has one element, splice should delete the element upon user click
+                if(itemsArray.length === 1){
+                    arrayContainerOne.removeChild(item[firstElementClicked]);
+                    userStatus.innerText = 'Single Element was removed!'
+                } 
+                reorderIndexNumbers(700);
+            }else if(clickCountArray === 2){
+                addIdToAllElements();
+                SecondElementClicked = e.target.id;
+                e.target.classList.add('item-selected');
+                deleteCountNum = (parseInt(SecondElementClicked)+1) - firstElementClicked;
+                userStatus.innerText = `Splice( index: ${firstElementClicked}, Delete Count: ${deleteCountNum})`;
+                RemoveItemsUsingSplice(firstElementClicked, SecondElementClicked);
+                reorderIndexNumbers(700);         
             }
         }
-            
-        // }    
-    })
+    } 
 }
+
 
 
 
 function RemoveItemsUsingSplice(firstIndex, secondIndex){
     isSpliceActive = true;
+    arrayContainerOne.style.cursor = 'default';
+    arrayContainerOne.style.pointerEvents = 'none';
     itemsArray = Array.from(item);
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
     const shift_previewNextElement = document.querySelector('.shift-item');
     if(parseInt(firstIndex) > parseInt(secondIndex)){
-        console.log('firstIndex', typeof firstIndex, 'secondIndex', secondIndex);
-        console.log('invalid input')
         userStatus.innerText = `INVALID INPUT - Click On Splice to Begin Again`;
-        // userStatus.style.color = 'red';
-        // clickCountArray = 2;
         userStatus.style.opacity = 1;
         removeClickedStyles();
+        arrayContainerOne.style.cursor = 'default';
+        arrayContainerOne.style.pointerEvents = 'none';
     }  
+    
     setTimeout(()=>{
         for(let i = parseInt(firstIndex); i <= parseInt(secondIndex); i++){
             gsap.fromTo(item[firstIndex], {opacity: 0, x:0}, {opacity: 1, x:-700, duration: .5});
-            console.log(i);
-            console.log(parseInt(secondIndex));
             arrayContainerOne.removeChild(item[firstIndex]);
             setTimeOutProcessing = false;
             removeClickedStyles();
@@ -331,9 +321,6 @@ function shift(){
     itemsArray = Array.from(item);
     const push_previewNextElement = document.querySelector('.push-item');
     const pop_previewNextElement = document.querySelector('.pop-item');
-    console.log(itemsArray.length)
-    console.log(setTimeOutProcessing);
-    
     if(item.length === 0) return 
     
     if(setTimeOutProcessing === false){
