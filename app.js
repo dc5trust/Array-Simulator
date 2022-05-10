@@ -140,7 +140,6 @@ function updateTheNextPreviewIndex(){
 
 function loadPageWithRandomArrayAmount(){
     let arrayAmount = Math.floor(Math.random() * 9) + 2;
-    // let arrayAmount = 13;
     for(let i = 0; i <arrayAmount; i++){
         const newItem = document.createElement('div');
         newItem.classList.add('item');
@@ -214,7 +213,6 @@ function UserSelectsItemsFromArray(e){
             if(e.target.classList[0] !== 'item' ) return
                 clickCountArray++;
             if(clickCountArray === 1){
-                console.log('before count ', clickCountArray);
                 addIdToAllElements();
                 e.target.classList.add('item-selected');
                 userStatus.innerText = 'Please select Range ( delete count )';
