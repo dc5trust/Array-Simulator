@@ -1,6 +1,6 @@
 # Array-Simulator-
 
-## Array Simulator was design as a learning tool for beginners. Array's can be a tough topic to grasp and this web application makes learning these four methods interactive. 
+## Array Simulator was design as a learning tool for beginners. Array's can be a tough topic to grasp and this web application makes learning these five methods easier. 
 
 ## Link to Web Application 
 https://array-simulator.netlify.app
@@ -18,8 +18,8 @@ https://array-simulator.netlify.app
 <ul>
   <li>Web Appliation includes UNSHIFT, SHIFT, PUSH, POP and SPLICE</li>
   <li>User can play around with these methods and visually see how they interact with an Array</li>
-  <li>GSAP Animations make the Array interactive and fun</li>
-  <li>Includes previews (Next Element) for each method before being implemented</li>
+  <li>GSAP Animations make the Array interactive and more importantly fun</li>
+  <li>Includes previews for next element being removed or added</li>
 </ul>
 
 ## Desktop Images
