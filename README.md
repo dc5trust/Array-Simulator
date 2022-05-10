@@ -5,7 +5,7 @@
 ## Link to Web Application 
 https://array-simulator.netlify.app
 
-## Tools Used 
+## Build With 
 <ul>
   <li>HTML</li>
   <li>CSS</li>
@@ -29,7 +29,7 @@ https://array-simulator.netlify.app
 
 <img width="390" alt="Screen Shot 2022-05-09 at 10 29 33 PM" src="https://user-images.githubusercontent.com/61483178/167550079-bed68311-f05e-4463-be97-4671c25bba1d.png">
 
-## Features Coming Soon 
+## Roadmap
 <ul>
   <li>add Slice Method</li>
   <li>Include other crucial Array Methods</li>
