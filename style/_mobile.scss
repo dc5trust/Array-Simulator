@@ -304,3 +304,48 @@
        display: none;
    }
 }
+
+@media only screen and (min-height: 400px) and (max-height: 989px) and (min-width: 950px) {
+    #main-page{
+        .title-container{
+          
+        }
+        .app-title{
+            font-size: 7rem;
+        }
+        //button container right below the main title
+        .splice-clear-container{
+        }
+        //container for 'array' & splice/clear all button
+        .array-simulator{
+           
+        }
+         // container that holds items( array )
+        .array{
+            width: 59.5rem;
+            height: 30rem;
+        
+        }
+        //each individual array element size 
+        .item{
+            height: 27rem;
+        }
+    }
+    .button-container{
+        //this container holds the button & smaller array item box
+        .individual-btn-container{
+            height: 26rem;
+           
+            //container that holds 'smaller' array item, the next up in pop,push,shift,unshift
+            .next-element-container{
+                height: 17rem;
+            
+            }
+            //each individual (small) array element in the preview box above the push/pop/shift/unshift btn
+            .small-item{
+            height: 12.5rem;
+            }
+            
+        }
+    }
+}

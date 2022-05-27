@@ -413,4 +413,26 @@ button:hover {
   html {
     display: none;
   }
+}
+@media only screen and (min-height: 400px) and (max-height: 989px) and (min-width: 950px) {
+  #main-page .app-title {
+    font-size: 7rem;
+  }
+  #main-page .array {
+    width: 59.5rem;
+    height: 30rem;
+  }
+  #main-page .item {
+    height: 27rem;
+  }
+
+  .button-container .individual-btn-container {
+    height: 26rem;
+  }
+  .button-container .individual-btn-container .next-element-container {
+    height: 17rem;
+  }
+  .button-container .individual-btn-container .small-item {
+    height: 12.5rem;
+  }
 }/*# sourceMappingURL=style.css.map */
