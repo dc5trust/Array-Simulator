@@ -307,6 +307,7 @@
 
 @media only screen and (min-height: 400px) and (max-height: 989px) and (min-width: 950px) {
     #main-page{
+        min-height: 100vh;
         .title-container{
           
         }
@@ -322,13 +323,14 @@
         }
          // container that holds items( array )
         .array{
-            width: 59.5rem;
+            width: 72.5rem;
             height: 30rem;
         
         }
         //each individual array element size 
         .item{
             height: 27rem;
+            width: 5rem;
         }
     }
     .button-container{

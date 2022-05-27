@@ -94,15 +94,15 @@ $itemMainColor: rgb(213, 211, 211);
         border: .3rem rgb(255, 255, 255) outset;
         pointer-events: none;
     }
-    .button-container{
-        min-height: 40rem;
-        width: 100%;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // background-color: aquamarine;
-    }
+    // .button-container{
+    //     min-height: 40rem;
+    //     width: 100%;
+    //     margin: auto;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     // background-color: aquamarine;
+    // }
     .splice-clear-container{
         min-height: 1rem;
         width: 40%;
@@ -126,14 +126,14 @@ $itemMainColor: rgb(213, 211, 211);
     }
 }
 
-//you have two of these! fix that please 
+
 .button-container{
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // flex-direction: column;
-    // height: 30vh;
-    // width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 30vh;
+    width: 100vw;
     // background-color: aqua;
 
     .group-btn-container{
