@@ -19,6 +19,9 @@
             margin: auto;
             
         }
+        .app-title{
+            font-size: 7.5rem;
+        }
         //button container right below the main title
         .splice-clear-container{
             width: 90%;
@@ -84,7 +87,7 @@
             height: 10vh;
         }
         .app-title{
-            font-size: 7.5rem;
+            font-size: 6rem;
         }
         .array-simulator{
             height: 40vh;
@@ -254,7 +257,7 @@
             height: 9vh;
         }
         .app-title{
-            font-size: 4.5rem;
+            font-size: 4.2rem;
         }
         .array-simulator{
             height: 25rem;
@@ -304,7 +307,7 @@
        display: none;
    }
 }
-
+//small laptops
 @media only screen and (min-height: 400px) and (max-height: 989px) and (min-width: 950px) {
     #main-page{
         min-height: 100vh;
